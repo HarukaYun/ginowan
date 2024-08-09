@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400..800&family=Zen+Old+Mincho:wght@400;700&display=swap");
+
+// 変数の設定
+
+$brown: #40210f;
+$yellow: #f39800;
+$en: gelato-fresco-variable, sans-serif;
+$light: 300;
+$bold: 700;
+$regular: 400;
+$btn_en: "EB Garamond", serif;
+
+//vwを自動計算
+$base-viewport: 1440; //ブレイクポイントはデザインボードに合わせてください
+@function pxtovw($size-in-px) {
+  @return ($size-in-px / $base-viewport) * 100vw;
+}
+$base-viewport_sp: 375; //ブレイクポイントはデザインボードに合わせてください
+@function pxtovw_sp($size-in-px) {
+  @return ($size-in-px / $base-viewport_sp) * 100vw;
+}

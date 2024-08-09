@@ -1,0 +1,332 @@
+@use "variable" as v;
+@use "common" as c;
+/*************************************************
+item
+*************************************************/
+
+#item_top {
+    position: relative;
+    padding-top: 14rem;
+    .item_ctn {
+        display: flex;
+        gap: 0 5.4rem;
+        justify-content: space-between;
+        padding-top: 3.5rem;
+        margin-bottom: 11.2rem;
+        .item_img_wrapper {
+            // width: v.pxtovw(600);
+            flex-basis: 49%;
+        }
+        @include ml() {
+            display: block;
+        }
+
+        //スライドここから
+        .slider-for {
+            margin-bottom: 2.5rem;
+            width: 60rem;
+            margin-right: 18px;
+            @include mq() {
+                width: 100%;
+                margin-right: auto;
+            }
+
+            .p-img-wrapper {
+                aspect-ratio: 1/1;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .slider-nav {
+            .slick-track {
+                width: 100% !important;
+                margin-top: 28px;
+                @include ml() {
+                    width: 90% !important;
+                    margin: 10px auto 0 auto;
+                }
+                @include mq() {
+                    width: 100% !important;
+                    margin-top: 10px;
+                }
+                .thumb-item {
+                    aspect-ratio: 1/1;
+                    margin-right: 20px;
+                    margin-bottom: 10px;
+                    overflow: hidden;
+                    @include mq() {
+                        margin-right: 10px;
+                    }
+                    .thumb-link {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                }
+
+                .slick-slide {
+                    width: 100px !important;
+                    @include mq() {
+                        width: 70px !important;
+                    }
+                }
+            }
+        }
+        //スライドここまで
+    }
+
+    //右半分
+    .item_ctt {
+        flex-basis: 48%;
+        .item_info_top {
+            border-bottom: 1px solid #40210f;
+            width: 100%;
+            margin-bottom: 3.7rem;
+            p {
+                letter-spacing: 0.17em;
+            }
+            .cat {
+                font-size: 1.6rem;
+                color: v.$yellow;
+                margin-bottom: 1rem;
+                @include mq() {
+                    font-size: 16px;
+                    margin-bottom: 0;
+                }
+            }
+            .product_name {
+                font-size: 2.4rem;
+                font-weight: 600;
+                margin-bottom: 2.6rem;
+            }
+            .price {
+                font-size: 2.6rem;
+                margin-bottom: 4rem;
+
+                .yen {
+                    font-size: 2rem;
+                }
+                .tax {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+
+        .product-quantity {
+            width: 169px;
+            height: 50px;
+            display: flex;
+            background: #fff;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            font-size: 2rem;
+            button {
+                width: 60px;
+            }
+            input {
+                width: 49px;
+            }
+        }
+
+        .cart_btn {
+            display: flex;
+            justify-content: center;
+            background-color: v.$yellow;
+            color: #fff;
+            border-radius: 0;
+            max-width: 43rem;
+            align-items: center;
+            padding: 1rem;
+            border: none;
+            margin-bottom: 7rem;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            @include mq() {
+                max-width: auto;
+            }
+            p {
+                font-size: 1.6rem;
+                letter-spacing: 0.17em;
+            }
+            .icon_svg {
+                width: 2.2rem;
+                margin-right: 1.9rem;
+                fill: #fff;
+            }
+        }
+    }
+
+    .item_exp {
+        margin-bottom: 4rem;
+        p {
+            letter-spacing: 0.17em;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    }
+
+    .ctt_wrap {
+        padding: 3rem;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        position: relative;
+        .background {
+            position: absolute;
+            display: block;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff9c;
+            filter: blur(1px);
+            z-index: -1;
+        }
+        @include mq() {
+            padding: 1.5rem;
+        }
+        dt {
+            width: 30%;
+            padding: 1.5rem 0 1.5rem 0.5rem;
+            margin-bottom: 0px;
+            font-size: 1.5rem;
+            font-weight: v.$bold;
+            letter-spacing: 0.17em;
+            display: block;
+
+            background: linear-gradient(to right, black 33%, rgba(255, 255, 255, 0) 0%);
+            background-position: top;
+            background-size: 6px 1px; /* 調整する間隔 */
+            background-repeat: repeat-x;
+            &:last-of-type {
+                background-image: linear-gradient(to right, black 33%, rgba(255, 255, 255, 0) 0%),
+                    linear-gradient(to right, black 33%, rgba(255, 255, 255, 0) 0%);
+                background-position: top, bottom;
+                background-size: 6px 1px; /* 調整する間隔 */
+                background-repeat: repeat-x, repeat-x;
+            }
+            @include mq() {
+                padding: 1rem 0;
+            }
+        }
+
+        dd {
+            width: 70%;
+            padding: 1.5rem 0.5rem;
+            margin-bottom: 0px;
+            font-size: 1.5rem;
+            font-weight: v.$light;
+            letter-spacing: 0.17em;
+            display: block;
+
+            background: linear-gradient(to right, black 33%, rgba(255, 255, 255, 0) 0%);
+            background-position: top;
+            background-size: 6px 1px; /* 調整する間隔 */
+            background-repeat: repeat-x;
+            &:last-of-type {
+                background-image: linear-gradient(to right, black 33%, rgba(255, 255, 255, 0) 0%),
+                    linear-gradient(to right, black 33%, rgba(255, 255, 255, 0) 0%);
+                background-position: top, bottom;
+                background-size: 6px 1px; /* 調整する間隔 */
+                background-repeat: repeat-x, repeat-x;
+            }
+        }
+    }
+    .item_info {
+        background-color: #fff;
+        width: 100%;
+        position: relative;
+        padding: 8.7rem 0 8.2rem;
+        margin-bottom: 4rem;
+        .ttl_tab {
+            position: absolute;
+            top: -5.5rem;
+            display: block;
+            background-color: #fff;
+            padding: 1.4rem;
+            border-radius: 1rem 1rem 0 0;
+            width: 17.8rem;
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .ctn {
+            display: flex;
+            justify-content: space-between;
+            gap: 7rem 0;
+            @include mq() {
+                display: block;
+            }
+            .ctt {
+                flex-basis: calc(584 / 1240 * 100%);
+                @include mq() {
+                    margin-bottom: 3rem;
+                }
+            }
+            .ctt_wrap {
+                flex-basis: calc(584 / 1240 * 100%);
+                border: 1px solid #000;
+                border-radius: 1rem;
+                padding: 3rem;
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                dt {
+                    width: 30%;
+                    padding: 1rem 0.5rem;
+                    margin-bottom: 0px;
+                    border-top: 3px solid dotted;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    letter-spacing: 0.17em;
+                    display: block;
+                    border-top: 3px dotted #000;
+                    &:last-of-type {
+                        border-bottom: 3px dotted #000;
+                    }
+                }
+
+                dd {
+                    width: 70%;
+                    padding: 1rem 0.5rem;
+                    margin-bottom: 0px;
+                    border-top: 3px solid dotted;
+                    font-size: 1.5rem;
+                    letter-spacing: 0.17em;
+                    display: block;
+                    border-top: 3px dotted #000;
+                    margin-left: -1rem;
+                    border-top: 3px dotted #000;
+                    &:last-of-type {
+                        border-bottom: 3px dotted #000;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#review {
+    margin-bottom: 10rem;
+    .ctn {
+        margin: 0 auto;
+        width: 100%;
+        border: 3px red solid;
+        padding: 3rem;
+        text-align: center;
+        p {
+            color: red;
+        }
+    }
+}

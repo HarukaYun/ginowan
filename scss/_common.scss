@@ -1,0 +1,360 @@
+@use "variable" as v;
+
+/*************************************************
+common-style
+*************************************************/
+@mixin base_width {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1920px;
+}
+// @extendでスタイルの継承
+// @mixinでステイルの定義
+// @includeでmixinの呼び出し
+
+// ブレイクポイント
+// PC基準でコーディングする場合
+$breakpoints: (
+  "sm": "screen and (max-width: 599px)",
+  //スマホ
+  "md": "screen and (max-width: 1024px)",
+  //タブレット
+) !default;
+@mixin mq($breakpoint: sm) {
+  @media #{map-get($breakpoints , $breakpoint)} {
+    @content;
+  }
+}
+@mixin ml($breakpoint: md) {
+  @media #{map-get($breakpoints , $breakpoint)} {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.ie_ObjectFit {
+  object-fit: cover;
+  font-family: "object-fit: cover;";
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+  @include mq {
+    font-size: 48%;
+    // font-size: min(1rem, 10px); /* 1remは10px以上になる */
+  }
+}
+
+body {
+  scroll-behavior: smooth;
+  font-family: "Zen Old Mincho", serif;
+  min-height: 100dvh;
+  color: v.$brown;
+  max-width: 1980px;
+  margin: 0 auto;
+  h4 {
+    letter-spacing: 0.2em;
+    line-height: 1.5;
+    font-weight: v.$bold;
+    @include mq() {
+      line-height: 1.8;
+      font-weight: bold;
+    }
+  }
+  h5 {
+    letter-spacing: 0.2em;
+    font-weight: v.$bold;
+  }
+  p {
+    font-size: 1.5rem;
+    font-weight: v.$regular;
+    line-height: 1.87;
+    letter-spacing: 0em;
+    @include mq() {
+      line-height: 2;
+      font-size: 15px;
+    }
+  }
+  a {
+    font-size: 1.5rem;
+    font-weight: v.$regular;
+    letter-spacing: 0.17em;
+    @include mq() {
+      font-size: 15px;
+    }
+    &:hover {
+      transition: 0.2s;
+      opacity: 0.5;
+    }
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.inner {
+  margin: 0 auto;
+  width: v.pxtovw(1240);
+  max-width: 1980px;
+  @include mq {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.inner_small {
+  margin: 0 auto;
+  width: v.pxtovw(1040);
+  max-width: 1780px;
+  @include mq {
+    width: 95%;
+  }
+}
+
+.bg_main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+section {
+  position: relative;
+  max-width: 1980px;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+// /iOSでのデフォルトスタイルをリセット /
+input[type="submit"],
+input[type="button"] {
+  border-radius: 0;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: button;
+  appearance: button;
+  border: none;
+  box-sizing: border-box;
+  &::-webkit-search-decoration {
+    display: none;
+  }
+  &:focus {
+    outline-offset: -2px;
+  }
+}
+
+//英字タイトル
+.text_deco {
+  font-family: v.$en;
+  font-size: 8rem;
+  letter-spacing: 0;
+  transform: rotate(-10deg);
+  width: fit-content;
+  @include mq() {
+    font-size: 48px;
+  }
+}
+
+//ボタン
+.btn {
+  width: fit-content;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1.5rem;
+    letter-spacing: 0.2em;
+    font-size: 1.6rem;
+    @include mq() {
+      font-size: 14px;
+    }
+    .arrow {
+      width: 50px;
+      height: 50px;
+      border: 1px solid v.$brown;
+      border-radius: 50%;
+      position: relative;
+      margin-left: 2rem;
+      @include mq() {
+        width: 40px;
+        height: 40px;
+      }
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 12px;
+      }
+    }
+    &:hover {
+      .arrow {
+        transition: 0.2s;
+        img {
+          left: 62%;
+          transition: 0.2s;
+        }
+      }
+    }
+  }
+}
+
+//カートボタン
+.cart_btn {
+  display: flex;
+  justify-content: center;
+  background-color: v.$brown;
+  border-radius: 3.9rem;
+  width: 100%;
+  max-width: 245px;
+  align-items: center;
+  padding: 0.5rem 0;
+
+  p {
+    color: #fff;
+    font-size: 1.6rem;
+  }
+  .icon_svg {
+    width: 2.2rem;
+    margin-right: 1.2rem;
+    fill: #fff;
+  }
+  &:hover {
+    opacity: 0.8;
+    transition: 1s;
+  }
+}
+
+//商品リスト
+.product_list {
+  max-width: 1980px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  @include ml() {
+    justify-content: flex-start;
+  }
+  @include mq() {
+    flex-wrap: nowrap;
+    margin: 0 auto 3rem;
+  }
+  li {
+    width: 16.5%;
+    max-width: 245px;
+    min-width: 180px;
+    margin: 0 v.pxtovw(17) 2rem;
+    a {
+      &:hover {
+        opacity: 0.8;
+        transition: 0.5s;
+        .img {
+          img {
+            transform: scale(1.1);
+            transition: 0.5s;
+          }
+        }
+      }
+    }
+    .item_link {
+      width: 100%;
+      text-align: left;
+    }
+    .img {
+      overflow: hidden;
+      width: 100%;
+      height: 20.5rem;
+      margin-bottom: 0.7rem;
+      border-radius: 0.5rem;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+        // z-index: -1;
+      }
+    }
+    .cat {
+      font-size: 1.5rem;
+      letter-spacing: 0.17em;
+      @include mq() {
+        line-height: 1.5;
+        font-weight: bold;
+      }
+    }
+    .product_name {
+      font-size: 1.6rem;
+      letter-spacing: 0.17em;
+      @include mq() {
+        line-height: 1.5;
+        font-weight: bold;
+      }
+    }
+    .price {
+      font-size: 1.6rem;
+      letter-spacing: 0.17em;
+      margin-bottom: 1.5rem;
+      @include mq() {
+        line-height: 1.5;
+        font-weight: bold;
+      }
+    }
+
+    .cart_btn {
+      &:hover {
+        transform: translateY(3px);
+        transition: 0.2s;
+      }
+    }
+  }
+}
+
+.product_wrap {
+  @include mq() {
+    margin: 0 auto 6rem;
+    overflow: auto;
+  }
+  .simplebar-track.simplebar-horizontal {
+    height: 6px;
+    background: #fff;
+    border-radius: 14px;
+    // max-width: 420px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .simplebar-scrollbar {
+    height: 6px;
+    background: #3f3b3a;
+    border-radius: 14px 0 0 14px;
+    top: 0;
+  }
+}
+
+.is_sp {
+  display: none;
+  @include mq() {
+    display: block;
+  }
+}
+
+.is_pc {
+  @include mq() {
+    display: none;
+  }
+}
