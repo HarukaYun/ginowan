@@ -1,13 +1,16 @@
 <main>
       <div class="bg_main">
         <picture
-          ><source src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/bg_main.jpg" media="(min-width:600px)" />
+          ><source srcset="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/bg_main.jpg" media="(min-width:600px)" />
           <img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/bg_main_sp.jpg" alt=""
         /></picture>
+
+
+
       </div>
       <div id="fv_top">
         <picture
-          ><source src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/fv_meat.png" media="(min-width:1025px)" />
+          ><source srcset="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/fv_meat.png" media="(min-width:1025px)" />
           <img
             src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/fv_meat_sp.png"
             alt="沖縄の豚肉"
@@ -53,7 +56,7 @@
                 テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
               </p>
               <div class="btn">
-                <a href="about.html"
+                <a href="/pages/about"
                   >VIEW ABOUT
                   <div class="arrow">
                     <img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/icon_arrow.svg" alt="" />
@@ -83,20 +86,26 @@
           <h3 class="text_deco">Line up.</h3>
           <div
             class="product_wrap"
-            data-simplebar
+            data-simpleba
             data-simplebar-auto-hide="false"
           >
             <ul class="product_list">
+              {% for used_product_block in section.blocks %}
+                　{% if used_product_block.type == 'used_product_block' %}
               <li>
-                <a href="item.html" class="item_link">
+                <a href="{{ used_product_block.settings.used_product.url }}" class="item_link">
                   <div class="img">
-                    <img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/dammy1.jpg" alt="" />
+                    <img src="{{used_product_block.settings.used_product.featured_image.src | img_url: 'master' }}" alt="" />
                   </div>
-                  <p class="cat">カテゴリ名</p>
-                  <p class="product_name">商品名</p>
-                  <p class="price">0,000円(税込)</p>
+                  <p class="cat">{{ used_product_block.settings.used_product.tags }}</p>
+                  <p class="product_name">{{ used_product_block.settings.used_product.title }}</p>
+                  <p class="price">{{ used_product_block.settings.used_product.price | money }}</p>
                 </a>
-                <a class="cart_btn" href="#">
+
+
+                <form action="/cart/add" method="post">
+                <input type="hidden" name="id" value="{{ used_product.settings.used_product.variants.first.id }}" />
+                <button type="submit" class="cart_btn">
                   <svg
                     class="icon_svg"
                     viewBox="0 0 23 23"
@@ -109,109 +118,17 @@
                     />
                   </svg>
                   <p>カートに入れる</p>
-                </a>
+                  </button>
+                  </form>
               </li>
-              <li>
-                <a href="item.html" class="item_link">
-                  <div class="img">
-                    <img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/dammy1.jpg" alt="" />
-                  </div>
-                  <p class="cat">カテゴリ名</p>
-                  <p class="product_name">商品名</p>
-                  <p class="price">0,000円(税込)</p>
-                </a>
-                <a class="cart_btn" href="#">
-                  <svg
-                    class="icon_svg"
-                    viewBox="0 0 23 23"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18.125 18.25C18.7217 18.25 19.294 18.4871 19.716 18.909C20.1379 19.331 20.375 19.9033 20.375 20.5C20.375 21.0967 20.1379 21.669 19.716 22.091C19.294 22.5129 18.7217 22.75 18.125 22.75C17.5283 22.75 16.956 22.5129 16.534 22.091C16.1121 21.669 15.875 21.0967 15.875 20.5C15.875 19.2512 16.8762 18.25 18.125 18.25ZM0.125 0.25H3.80375L4.86125 2.5H21.5C21.7984 2.5 22.0845 2.61853 22.2955 2.82951C22.5065 3.04048 22.625 3.32663 22.625 3.625C22.625 3.81625 22.5687 4.0075 22.49 4.1875L18.4625 11.4663C18.08 12.1525 17.3375 12.625 16.4938 12.625H8.1125L7.1 14.4588L7.06625 14.5938C7.06625 14.6683 7.09588 14.7399 7.14863 14.7926C7.20137 14.8454 7.27291 14.875 7.3475 14.875H20.375V17.125H6.875C6.27826 17.125 5.70597 16.8879 5.28401 16.466C4.86205 16.044 4.625 15.4717 4.625 14.875C4.625 14.4813 4.72625 14.11 4.895 13.795L6.425 11.0388L2.375 2.5H0.125V0.25ZM6.875 18.25C7.47174 18.25 8.04403 18.4871 8.46599 18.909C8.88795 19.331 9.125 19.9033 9.125 20.5C9.125 21.0967 8.88795 21.669 8.46599 22.091C8.04403 22.5129 7.47174 22.75 6.875 22.75C6.27826 22.75 5.70597 22.5129 5.28401 22.091C4.86205 21.669 4.625 21.0967 4.625 20.5C4.625 19.2512 5.62625 18.25 6.875 18.25ZM17 10.375L20.1275 4.75H5.9075L8.5625 10.375H17Z"
-                      fill="white"
-                    />
-                  </svg>
-                  <p>カートに入れる</p>
-                </a>
-              </li>
-              <li>
-                <a href="item.html" class="item_link">
-                  <div class="img">
-                    <img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/dammy1.jpg" alt="" />
-                  </div>
-                  <p class="cat">カテゴリ名</p>
-                  <p class="product_name">商品名</p>
-                  <p class="price">0,000円(税込)</p>
-                </a>
-                <a class="cart_btn" href="#">
-                  <svg
-                    class="icon_svg"
-                    viewBox="0 0 23 23"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18.125 18.25C18.7217 18.25 19.294 18.4871 19.716 18.909C20.1379 19.331 20.375 19.9033 20.375 20.5C20.375 21.0967 20.1379 21.669 19.716 22.091C19.294 22.5129 18.7217 22.75 18.125 22.75C17.5283 22.75 16.956 22.5129 16.534 22.091C16.1121 21.669 15.875 21.0967 15.875 20.5C15.875 19.2512 16.8762 18.25 18.125 18.25ZM0.125 0.25H3.80375L4.86125 2.5H21.5C21.7984 2.5 22.0845 2.61853 22.2955 2.82951C22.5065 3.04048 22.625 3.32663 22.625 3.625C22.625 3.81625 22.5687 4.0075 22.49 4.1875L18.4625 11.4663C18.08 12.1525 17.3375 12.625 16.4938 12.625H8.1125L7.1 14.4588L7.06625 14.5938C7.06625 14.6683 7.09588 14.7399 7.14863 14.7926C7.20137 14.8454 7.27291 14.875 7.3475 14.875H20.375V17.125H6.875C6.27826 17.125 5.70597 16.8879 5.28401 16.466C4.86205 16.044 4.625 15.4717 4.625 14.875C4.625 14.4813 4.72625 14.11 4.895 13.795L6.425 11.0388L2.375 2.5H0.125V0.25ZM6.875 18.25C7.47174 18.25 8.04403 18.4871 8.46599 18.909C8.88795 19.331 9.125 19.9033 9.125 20.5C9.125 21.0967 8.88795 21.669 8.46599 22.091C8.04403 22.5129 7.47174 22.75 6.875 22.75C6.27826 22.75 5.70597 22.5129 5.28401 22.091C4.86205 21.669 4.625 21.0967 4.625 20.5C4.625 19.2512 5.62625 18.25 6.875 18.25ZM17 10.375L20.1275 4.75H5.9075L8.5625 10.375H17Z"
-                      fill="white"
-                    />
-                  </svg>
-                  <p>カートに入れる</p>
-                </a>
-              </li>
-              <li>
-                <a href="item.html" class="item_link">
-                  <div class="img">
-                    <img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/dammy2.jpg" alt="" />
-                  </div>
-                  <p class="cat">カテゴリ名</p>
-                  <p class="product_name">商品名</p>
-                  <p class="price">0,000円(税込)</p>
-                </a>
-                <a class="cart_btn" href="#">
-                  <svg
-                    class="icon_svg"
-                    viewBox="0 0 23 23"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18.125 18.25C18.7217 18.25 19.294 18.4871 19.716 18.909C20.1379 19.331 20.375 19.9033 20.375 20.5C20.375 21.0967 20.1379 21.669 19.716 22.091C19.294 22.5129 18.7217 22.75 18.125 22.75C17.5283 22.75 16.956 22.5129 16.534 22.091C16.1121 21.669 15.875 21.0967 15.875 20.5C15.875 19.2512 16.8762 18.25 18.125 18.25ZM0.125 0.25H3.80375L4.86125 2.5H21.5C21.7984 2.5 22.0845 2.61853 22.2955 2.82951C22.5065 3.04048 22.625 3.32663 22.625 3.625C22.625 3.81625 22.5687 4.0075 22.49 4.1875L18.4625 11.4663C18.08 12.1525 17.3375 12.625 16.4938 12.625H8.1125L7.1 14.4588L7.06625 14.5938C7.06625 14.6683 7.09588 14.7399 7.14863 14.7926C7.20137 14.8454 7.27291 14.875 7.3475 14.875H20.375V17.125H6.875C6.27826 17.125 5.70597 16.8879 5.28401 16.466C4.86205 16.044 4.625 15.4717 4.625 14.875C4.625 14.4813 4.72625 14.11 4.895 13.795L6.425 11.0388L2.375 2.5H0.125V0.25ZM6.875 18.25C7.47174 18.25 8.04403 18.4871 8.46599 18.909C8.88795 19.331 9.125 19.9033 9.125 20.5C9.125 21.0967 8.88795 21.669 8.46599 22.091C8.04403 22.5129 7.47174 22.75 6.875 22.75C6.27826 22.75 5.70597 22.5129 5.28401 22.091C4.86205 21.669 4.625 21.0967 4.625 20.5C4.625 19.2512 5.62625 18.25 6.875 18.25ZM17 10.375L20.1275 4.75H5.9075L8.5625 10.375H17Z"
-                      fill="white"
-                    />
-                  </svg>
-                  <p>カートに入れる</p>
-                </a>
-              </li>
-              <li>
-                <a href="item.html" class="item_link">
-                  <div class="img">
-                    <img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/dammy2.jpg" alt="" />
-                  </div>
-                  <p class="cat">カテゴリ名</p>
-                  <p class="product_name">商品名</p>
-                  <p class="price">0,000円(税込)</p>
-                </a>
-                <a class="cart_btn" href="#">
-                  <svg
-                    class="icon_svg"
-                    viewBox="0 0 23 23"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18.125 18.25C18.7217 18.25 19.294 18.4871 19.716 18.909C20.1379 19.331 20.375 19.9033 20.375 20.5C20.375 21.0967 20.1379 21.669 19.716 22.091C19.294 22.5129 18.7217 22.75 18.125 22.75C17.5283 22.75 16.956 22.5129 16.534 22.091C16.1121 21.669 15.875 21.0967 15.875 20.5C15.875 19.2512 16.8762 18.25 18.125 18.25ZM0.125 0.25H3.80375L4.86125 2.5H21.5C21.7984 2.5 22.0845 2.61853 22.2955 2.82951C22.5065 3.04048 22.625 3.32663 22.625 3.625C22.625 3.81625 22.5687 4.0075 22.49 4.1875L18.4625 11.4663C18.08 12.1525 17.3375 12.625 16.4938 12.625H8.1125L7.1 14.4588L7.06625 14.5938C7.06625 14.6683 7.09588 14.7399 7.14863 14.7926C7.20137 14.8454 7.27291 14.875 7.3475 14.875H20.375V17.125H6.875C6.27826 17.125 5.70597 16.8879 5.28401 16.466C4.86205 16.044 4.625 15.4717 4.625 14.875C4.625 14.4813 4.72625 14.11 4.895 13.795L6.425 11.0388L2.375 2.5H0.125V0.25ZM6.875 18.25C7.47174 18.25 8.04403 18.4871 8.46599 18.909C8.88795 19.331 9.125 19.9033 9.125 20.5C9.125 21.0967 8.88795 21.669 8.46599 22.091C8.04403 22.5129 7.47174 22.75 6.875 22.75C6.27826 22.75 5.70597 22.5129 5.28401 22.091C4.86205 21.669 4.625 21.0967 4.625 20.5C4.625 19.2512 5.62625 18.25 6.875 18.25ZM17 10.375L20.1275 4.75H5.9075L8.5625 10.375H17Z"
-                      fill="white"
-                    />
-                  </svg>
-                  <p>カートに入れる</p>
-                </a>
-              </li>
+
+              {% endif %}
+            {% endfor %}
             </ul>
           </div>
           <!-- product_wrap -->
           <div class="btn">
-            <a href="item-list.html"
+            <a href="/collections/all"
               >商品一覧
               <div class="arrow">
                 <img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/icon_arrow.svg" alt="" />
@@ -250,7 +167,7 @@
             <div class="ctt_ttl">
               <h3 class="text_deco">FAQ.</h3>
               <div class="btn">
-                <a href="faq.html"
+                <a href="/pages/faq"
                   >よくあるご質問
                   <div class="arrow">
                     <img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/icon_arrow_wh.svg" alt="" />
@@ -260,7 +177,7 @@
             </div>
             <div class="ctt">
               <div class="btn">
-                <a href="faq.html#order"
+                <a href="/pages/faq#order"
                   >ご注文・お支払いについて
                   <div class="arrow">
                     <img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/icon_arrow.svg" alt="" />
@@ -268,7 +185,7 @@
                 </a>
               </div>
               <div class="btn">
-                <a href="faq.html#delivery"
+                <a href="/pages/faq#delivery"
                   >配送・送料について
                   <div class="arrow">
                     <img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/icon_arrow.svg" alt="" />
@@ -276,7 +193,7 @@
                 </a>
               </div>
               <div class="btn">
-                <a href="faq.html#return"
+                <a href="/pages/faq#return"
                   >返品・交換について
                   <div class="arrow">
                     <img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/icon_arrow.svg" alt="" />
@@ -288,13 +205,27 @@
         </div>
       </section>
     </main>
-    {% schema %}
-      {
-        "name": "top-main",
-        "presets": [
-          {
-            "name": "top-main"
-          }
-        ]
-      }
-  {% endschema %}
+{% schema %}
+{
+  "name": "top-main",
+  "presets": [
+    {
+      "name": "top-main"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "used_product_block",
+      "name": "商品ブロック",
+      "settings": [
+        {
+          "type": "product",
+          "id": "used_product",
+          "label": "ラインナップに載せる商品を選択"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5
+}
+{% endschema %}

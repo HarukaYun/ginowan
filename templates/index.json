@@ -1,7 +1,41 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "top_main_tC99MG": {
       "type": "top-main",
+      "blocks": {
+        "used_product_block_xzhfan": {
+          "type": "used_product_block",
+          "settings": {
+            "used_product": "テスト１-パイナップルポークハンバーグ"
+          }
+        },
+        "used_product_block_ip7QeR": {
+          "type": "used_product_block",
+          "settings": {
+            "used_product": "テスト１-パイナップルポークハンバーグ"
+          }
+        },
+        "used_product_block_bhaBxQ": {
+          "type": "used_product_block",
+          "settings": {
+            "used_product": "テスト１-パイナップルポークハンバーグ"
+          }
+        }
+      },
+      "block_order": [
+        "used_product_block_xzhfan",
+        "used_product_block_ip7QeR",
+        "used_product_block_bhaBxQ"
+      ],
       "settings": {
       }
     }

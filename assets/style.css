@@ -244,13 +244,8 @@ input[type=button]:focus {
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
-}
-@media screen and (max-width: 1024px) {
-  .product_list {
-    justify-content: flex-start;
-  }
 }
 @media screen and (max-width: 599px) {
   .product_list {
@@ -613,15 +608,10 @@ input[type=button]:focus {
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 1024px) {
-  .product_list {
-    justify-content: flex-start;
-  }
-}
 @media screen and (max-width: 599px) {
   .product_list {
     flex-wrap: nowrap;
@@ -1246,15 +1236,10 @@ input[type=button]:focus {
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 1024px) {
-  .product_list {
-    justify-content: flex-start;
-  }
-}
 @media screen and (max-width: 599px) {
   .product_list {
     flex-wrap: nowrap;
@@ -1834,15 +1819,10 @@ input[type=button]:focus {
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 1024px) {
-  .product_list {
-    justify-content: flex-start;
-  }
-}
 @media screen and (max-width: 599px) {
   .product_list {
     flex-wrap: nowrap;
@@ -2692,15 +2672,10 @@ input[type=button]:focus {
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 1024px) {
-  .product_list {
-    justify-content: flex-start;
-  }
-}
 @media screen and (max-width: 599px) {
   .product_list {
     flex-wrap: nowrap;
@@ -3475,15 +3450,10 @@ input[type=button]:focus {
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 1024px) {
-  .product_list {
-    justify-content: flex-start;
-  }
-}
 @media screen and (max-width: 599px) {
   .product_list {
     flex-wrap: nowrap;
@@ -4008,15 +3978,10 @@ input[type=button]:focus {
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 1024px) {
-  .product_list {
-    justify-content: flex-start;
-  }
-}
 @media screen and (max-width: 599px) {
   .product_list {
     flex-wrap: nowrap;
@@ -4720,15 +4685,10 @@ input[type=button]:focus {
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 1024px) {
-  .product_list {
-    justify-content: flex-start;
-  }
-}
 @media screen and (max-width: 599px) {
   .product_list {
     flex-wrap: nowrap;
@@ -5436,15 +5396,10 @@ input[type=button]:focus {
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 1024px) {
-  .product_list {
-    justify-content: flex-start;
-  }
-}
 @media screen and (max-width: 599px) {
   .product_list {
     flex-wrap: nowrap;
