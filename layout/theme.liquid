@@ -358,7 +358,14 @@ href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
     {% comment %} <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a> {% endcomment %}
-    
+    {% comment %} 背景追記ここから {% endcomment %}
+    <div class="bg_main">
+      <picture
+        ><source srcset="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/bg_main.jpg" media="(min-width:600px)" />
+        <img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/bg_main_sp.jpg" alt=""
+      /></picture>
+    </div>
+       {% comment %} 背景追記ここまで {% endcomment %}
 
     {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}

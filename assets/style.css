@@ -436,6 +436,7 @@ cart-items .cart__items .cart-item__details a {
 *************************************************/
 .template-search {
   padding-top: 15rem !important;
+  padding-bottom: 15rem !important;
   text-align: center;
 }
 .template-search .h2 {
@@ -976,6 +977,7 @@ cart-items .cart__items .cart-item__details a {
 *************************************************/
 .template-search {
   padding-top: 15rem !important;
+  padding-bottom: 15rem !important;
   text-align: center;
 }
 
@@ -1784,6 +1786,7 @@ cart-items .cart__items .cart-item__details a {
 *************************************************/
 .template-search {
   padding-top: 15rem !important;
+  padding-bottom: 15rem !important;
   text-align: center;
 }
 
@@ -2547,6 +2550,7 @@ cart-items .cart__items .cart-item__details a {
 *************************************************/
 .template-search {
   padding-top: 15rem !important;
+  padding-bottom: 15rem !important;
   text-align: center;
 }
 
@@ -3580,6 +3584,7 @@ cart-items .cart__items .cart-item__details a {
 *************************************************/
 .template-search {
   padding-top: 15rem !important;
+  padding-bottom: 15rem !important;
   text-align: center;
 }
 
@@ -4538,6 +4543,7 @@ cart-items .cart__items .cart-item__details a {
 *************************************************/
 .template-search {
   padding-top: 15rem !important;
+  padding-bottom: 15rem !important;
   text-align: center;
 }
 
@@ -5246,6 +5252,7 @@ cart-items .cart__items .cart-item__details a {
 *************************************************/
 .template-search {
   padding-top: 15rem !important;
+  padding-bottom: 15rem !important;
   text-align: center;
 }
 
@@ -5496,6 +5503,7 @@ item
 @media screen and (max-width: 599px) {
   #item_top .item_ctt .cart_btn {
     max-width: auto;
+    margin: 0 auto 7rem;
   }
 }
 #item_top .item_ctt .cart_btn p {
@@ -5658,18 +5666,83 @@ item
   border-bottom: 3px dotted #000;
 }
 
-#review {
-  margin-bottom: 10rem;
+/*************************************************
+レビュー
+*************************************************/
+.jdgm-rev-widg {
+  width: 86.1111111111%;
+  margin: 8rem auto 8rem !important;
+  padding-top: 5rem;
+  padding-bottom: 10rem;
+  font-size: 1.4rem !important;
 }
-#review .ctn {
+@media screen and (max-width: 1024px) {
+  .jdgm-rev-widg {
+    width: 93.0555555556%;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 599px) {
+  .jdgm-rev-widg {
+    width: 100%;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    font-size: 12px !important;
+  }
+}
+.jdgm-rev-widg .jdgm-rev-widg__title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 6rem !important;
+}
+.jdgm-rev-widg .jdgm-sort-dropdown {
+  color: #000 !important;
+}
+.jdgm-rev-widg .jdgm-sort-dropdown-arrow {
+  color: #000 !important;
+}
+.jdgm-rev-widg .jdgm-rev__timestamp {
+  font-size: 14px;
+  color: #000;
+}
+@media screen and (max-width: 1024px) {
+  .jdgm-rev-widg .jdgm-widget-actions-wrapper .jdgm-write-rev-link {
+    max-width: 370px !important;
+  }
+}
+@media screen and (max-width: 599px) {
+  .jdgm-rev-widg .jdgm-widget-actions-wrapper .jdgm-write-rev-link {
+    max-width: 85% !important;
+  }
+}
+
+.jdgm-form {
+  color: #000;
+  font-size: 1.4rem;
+}
+.jdgm-form input {
+  border: 1px solid #40210f !important;
+}
+.jdgm-form textarea {
+  border: 1px solid #40210f !important;
+}
+.jdgm-form .jdgm-form__fieldset p {
+  line-height: 1.8;
+}
+.jdgm-form .jdgm-form__fieldset a {
+  border-bottom: 1px solid #000;
+  width: -moz-fit-content;
+  width: fit-content;
   margin: 0 auto;
-  width: 100%;
-  border: 3px red solid;
-  padding: 3rem;
-  text-align: center;
 }
-#review .ctn p {
-  color: red;
+.jdgm-form .jdgm-form__fieldset-actions .jdgm-btn--border {
+  border: none !important;
+  color: #40210f !important;
+}
+.jdgm-form .jdgm-form__fieldset-actions .jdgm-btn--solid {
+  border: 1px solid #40210f;
+  background-color: #40210f !important;
 }
 
 /*************************************************
@@ -6135,6 +6208,7 @@ cart-items .cart__items .cart-item__details a {
 *************************************************/
 .template-search {
   padding-top: 15rem !important;
+  padding-bottom: 15rem !important;
   text-align: center;
 }
 
@@ -7078,6 +7152,7 @@ cart-items .cart__items .cart-item__details a {
 *************************************************/
 .template-search {
   padding-top: 15rem !important;
+  padding-bottom: 15rem !important;
   text-align: center;
 }
 
