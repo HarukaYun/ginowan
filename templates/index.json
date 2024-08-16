@@ -29,12 +29,30 @@
           "settings": {
             "used_product": "テスト１-パイナップルポークハンバーグ"
           }
+        },
+        "banner_block_J6axJE": {
+          "type": "banner_block",
+          "settings": {
+            "banner_image": "shopify:\/\/shop_images\/top_lp1.jpg",
+            "banner_image_txt": "shopify:\/\/shop_images\/top_lp1_p.png",
+            "banner_link": "shopify:\/\/collections\/all"
+          }
+        },
+        "banner_block_B89rUG": {
+          "type": "banner_block",
+          "settings": {
+            "banner_image": "shopify:\/\/shop_images\/top_lp2.jpg",
+            "banner_image_txt": "shopify:\/\/shop_images\/top_lp2_p.png",
+            "banner_link": "shopify:\/\/collections\/all"
+          }
         }
       },
       "block_order": [
         "used_product_block_xzhfan",
         "used_product_block_ip7QeR",
-        "used_product_block_bhaBxQ"
+        "used_product_block_bhaBxQ",
+        "banner_block_J6axJE",
+        "banner_block_B89rUG"
       ],
       "settings": {
       }

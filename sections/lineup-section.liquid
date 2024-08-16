@@ -6,14 +6,15 @@
       <div class="img">
         <img src="{{used_product_block.settings.used_product.featured_image.src | img_url: 'master' }}" alt="" />
       </div>
-      <p class="cat">{{ used_product_block.settings.used_product.tags }}</p>
+      <p class="cat"> {% for tag in used_product_block.settings.used_product.tags %}
+      {{ tag }}{% if forloop.last == false %}, {% endif %}
+    {% endfor %}</p>
       <p class="product_name">{{ used_product_block.settings.used_product.title }}</p>
       <p class="price">{{ used_product_block.settings.used_product.price | money }}</p>
     </a>
 
     <form action="/cart/add" method="post">
-    <input type="hidden" name="id" value="{{ used_product.settings.used_product.variants.first.id }}" />
-
+    <input type="hidden" name="id" value="{{ used_product_block.settings.used_product.variants.first.id }}" />
             <button type="submit" class="cart_btn">
       <svg
         class="icon_svg"

@@ -1,0 +1,57 @@
+<div class="bg_main">
+  <picture
+    ><source srcset="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/bg_main.jpg" media="(min-width:600px)" />
+    <img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/bg_main_sp_under.jpg" alt=""
+  /></picture>
+</div>
+<div id="fv_items">
+  <div class="inner">
+    <h2 data-aos="fade">
+      商品一覧<span class="text_deco">Line up</span>
+    </h2>
+  </div>
+</div>
+<section id="items" class="inner">
+  <ul class="item-list" data-aos="fade-up" data-aos-delay="100">
+    {% for product in collection.products %}
+    <li>
+      <a class="item_link" href="{{ product.url }}">
+        <div class="img">
+          <img src="{{ product.featured_image.src | img_url: 'master' }}" alt="" />
+        </div>
+        <p class="cat">{% for tag in product.tags %}
+        {{ tag }}{% if forloop.last == false %}, {% endif %}
+      {% endfor %}</p>
+        <p class="product_name">{{ product.title }}</p>
+        <p class="price">{{ product.price | money }}</p>
+        <!-- 星評価のプレースホルダー -->
+        <div class="rating">
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">☆</span>
+          <p>(25)</p>
+        </div>
+      </a>
+      <form action="/cart/add" method="post">
+      <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+      <button type="submit" class="cart_btn">
+        <svg
+          class="icon_svg"
+          viewBox="0 0 26 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20.4546 19.7453C21.1028 19.7453 21.7246 20.0029 22.183 20.4613C22.6414 20.9197 22.8989 21.5414 22.8989 22.1897C22.8989 22.8379 22.6414 23.4597 22.183 23.9181C21.7246 24.3765 21.1028 24.634 20.4546 24.634C19.8063 24.634 19.1846 24.3765 18.7262 23.9181C18.2678 23.4597 18.0103 22.8379 18.0103 22.1897C18.0103 20.8331 19.098 19.7453 20.4546 19.7453ZM0.900024 0.190796H4.89648L6.04531 2.63511H24.121C24.4452 2.63511 24.756 2.76388 24.9852 2.99308C25.2144 3.22228 25.3432 3.53314 25.3432 3.85727C25.3432 4.06504 25.2821 4.27281 25.1965 4.46835L20.8212 12.3757C20.4057 13.1212 19.5991 13.6345 18.6824 13.6345H9.57735L8.47741 15.6267L8.44075 15.7733C8.44075 15.8544 8.47294 15.9321 8.53024 15.9894C8.58754 16.0467 8.66525 16.0789 8.74629 16.0789H22.8989V18.5232H8.23298C7.58471 18.5232 6.96298 18.2657 6.50458 17.8073C6.04619 17.3489 5.78866 16.7271 5.78866 16.0789C5.78866 15.6511 5.89865 15.2478 6.08198 14.9056L7.74411 11.9113L3.34434 2.63511H0.900024V0.190796ZM8.23298 19.7453C8.88125 19.7453 9.50297 20.0029 9.96137 20.4613C10.4198 20.9197 10.6773 21.5414 10.6773 22.1897C10.6773 22.8379 10.4198 23.4597 9.96137 23.9181C9.50297 24.3765 8.88125 24.634 8.23298 24.634C7.58471 24.634 6.96298 24.3765 6.50458 23.9181C6.04619 23.4597 5.78866 22.8379 5.78866 22.1897C5.78866 20.8331 6.87638 19.7453 8.23298 19.7453ZM19.2324 11.1902L22.63 5.07943H7.18192L10.0662 11.1902H19.2324Z"
+          />
+        </svg>
+        <p>カートに入れる</p>
+        </button>
+        </form>
+    </li>
+    {% else %}
+  </ul>
+{% endfor %}
+</section>

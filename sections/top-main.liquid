@@ -27,25 +27,25 @@
           />
         </h2>
       </div>
+      {% comment %} ---------実績報告時、非表示--------- {% endcomment %}
+      {% comment %} 
       <section id="recommend" class="inner" data-aos="fade-up">
         <h3 class="text_deco">Recommend.</h3>
         <ul>
+          {% for block in section.blocks %}
+            {% if block.type == 'banner_block' %}
           <li>
-            <a href="#"
+            <a href="{{ block.settings.banner_link }}"
               ><div class="wrappar">
-                <img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/top_lp1.jpg" class="link_img" alt="" /></div
+                <img src="{{ block.settings.banner_image | img_url: 'master' }}" class="link_img" alt="" /></div
             ></a>
-            <span><img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/top_lp1_p.png" alt="" /></span>
+            <span><img src="{{ block.settings.banner_image_txt | img_url: 'master' }}" alt="" /></span>
           </li>
-          <li>
-            <a href="#"
-              ><div class="wrappar">
-                <img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/top_lp2.jpg" class="link_img" alt="" /></div
-            ></a>
-            <span><img src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/top_lp2_p.png" alt="" /></span>
-          </li>
+        {% endif %}
+      {% endfor %}
         </ul>
-      </section>
+      </section> {% endcomment %}
+            {% comment %} ---------実績報告時、非表示--------- {% endcomment %}
       <section id="about" data-aos="fade-up">
         <div class="inner">
           <h3 class="text_deco">About.</h3>
@@ -67,7 +67,7 @@
             <div class="ctt_img" data-aos="fade" data-aos-delay="100">
               <picture
                 ><source
-                  src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/top_about_img.png"
+                srcset="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/top_about_img.png"
                   media="(min-width:600px)" />
                 <img
                   src="https://cdn.shopify.com/s/files/1/0615/5894/7910/files/top_about_img_sp.png"
@@ -76,6 +76,7 @@
                   data-aos="fade"
                   data-aos-delay="100"
               /></picture>
+
             </div>
           </div>
         </div>
@@ -95,16 +96,17 @@
               <li>
                 <a href="{{ used_product_block.settings.used_product.url }}" class="item_link">
                   <div class="img">
-                    <img src="{{used_product_block.settings.used_product.featured_image.src | img_url: 'master' }}" alt="" />
+                    <img src="{{ used_product_block.settings.used_product.featured_image.src | img_url: 'master' }}" alt="" />
                   </div>
-                  <p class="cat">{{ used_product_block.settings.used_product.tags }}</p>
+                  <p class="cat"> {% for tag in used_product_block.settings.used_product.tags %}
+                  {{ tag }}{% if forloop.last == false %}, {% endif %}
+                {% endfor %}</p>
                   <p class="product_name">{{ used_product_block.settings.used_product.title }}</p>
                   <p class="price">{{ used_product_block.settings.used_product.price | money }}</p>
                 </a>
 
-
                 <form action="/cart/add" method="post">
-                <input type="hidden" name="id" value="{{ used_product.settings.used_product.variants.first.id }}" />
+                <input type="hidden" name="id" value="{{ used_product_block.settings.used_product.variants.first.id }}" />
                 <button type="submit" class="cart_btn">
                   <svg
                     class="icon_svg"
@@ -224,7 +226,29 @@
           "label": "ラインナップに載せる商品を選択"
         }
       ]
+    },
+    {
+      "type": "banner_block",
+                  "name": "バナーブロック",
+                  "settings": [
+                    {
+                      "type": "image_picker",
+                      "id": "banner_image",
+                      "label": "バナー画像"
+                    },
+                    {
+                    "type": "image_picker",
+                    "id": "banner_image_txt",
+                    "label": "バナー画像(商品名)"
+                  },
+                    {
+                "type": "url",
+                "id": "banner_link",
+                "label": "リンク先"
+                }
+                  ]
     }
+    
   ],
   "max_blocks": 5
 }
