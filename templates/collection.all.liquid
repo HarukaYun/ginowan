@@ -25,14 +25,37 @@
         <p class="product_name">{{ product.title }}</p>
         <p class="price">{{ product.price | money }}</p>
         <!-- 星評価のプレースホルダー -->
-        <div class="rating">
-          <span class="star">★</span>
-          <span class="star">★</span>
-          <span class="star">★</span>
-          <span class="star">★</span>
-          <span class="star">☆</span>
-          <p>(25)</p>
-        </div>
+        {% if product.metafields.reviews.rating_count > 0 %}
+          <div class="rating-wrapper">
+            {% liquid
+              assign rating_decimal = 0
+              assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1
+              if decimal >= 0.3 and decimal <= 0.7
+                assign rating_decimal = 0.5
+              elsif decimal > 0.7
+                assign rating_decimal = 1
+              endif
+            %}
+            <div
+              class="rating"
+              role="img"
+              aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}"
+            >
+              <span
+                aria-hidden="true"
+                class="rating-star"
+                style="--rating: {{ product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"
+              ></span>
+            </div>
+            <p class="rating-count caption">
+              <span aria-hidden="true">({{ product.metafields.reviews.rating_count }})</span>
+            </p>
+          </div>
+          {% else %}
+          <div class="rating-wrapper" style="display: none;"></div>
+          <p class="no-rating-message">まだレビューはありません</p>
+          {% endif %}
+            <!-- 星評価のプレースホルダー -->
       </a>
       <form action="/cart/add" method="post">
       <input type="hidden" name="id" value="{{ product.variants.first.id }}" />

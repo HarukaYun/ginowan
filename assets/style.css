@@ -4790,6 +4790,42 @@ item-list
 }
 
 /*************************************************
+レビュー評価
+*************************************************/
+.rating-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 16px;
+  margin-bottom: 1.5rem;
+}
+.rating-wrapper .rating {
+  margin-bottom: 0 !important;
+}
+.rating-wrapper .rating-star {
+  --color-rating-star: #f39800;
+  --color-rating-star-bg: #d9d9d9; /* グレー */
+  --percent: calc((var(--rating) + var(--rating-decimal)) / var(--rating-max) * 100%);
+  letter-spacing: 0.3rem;
+  font-size: 1.8rem;
+  line-height: 1;
+  display: inline-block;
+  font-family: Times;
+  margin: 0;
+}
+.rating-wrapper .rating-star::before {
+  content: "★★★★★";
+  background: linear-gradient(90deg, var(--color-rating-star) var(--percent), var(--color-rating-star-bg) var(--percent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.no-rating-message {
+  margin-bottom: 1.5rem;
+}
+
+/*************************************************
 common-style
 *************************************************/
 * {
