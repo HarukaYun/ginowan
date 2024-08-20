@@ -15,19 +15,13 @@
         "used_product_block_xzhfan": {
           "type": "used_product_block",
           "settings": {
-            "used_product": "テスト１-パイナップルポークハンバーグ"
+            "used_product": "ポークハンバーグ"
           }
         },
         "used_product_block_ip7QeR": {
           "type": "used_product_block",
           "settings": {
-            "used_product": "テスト2-パイナップルポークハンバーグ-コピー"
-          }
-        },
-        "used_product_block_bhaBxQ": {
-          "type": "used_product_block",
-          "settings": {
-            "used_product": "テスト１-パイナップルポークハンバーグ"
+            "used_product": "あぐーラフテー"
           }
         },
         "banner_block_J6axJE": {
@@ -50,7 +44,6 @@
       "block_order": [
         "used_product_block_xzhfan",
         "used_product_block_ip7QeR",
-        "used_product_block_bhaBxQ",
         "banner_block_J6axJE",
         "banner_block_B89rUG"
       ],

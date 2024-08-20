@@ -142,22 +142,22 @@
       "lineup-section": {
         "type": "lineup-section",
         "blocks": {
-          "used_product_block_VagPLp": {
-            "type": "used_product_block",
-            "settings": {
-              "used_product": "テスト１-パイナップルポークハンバーグ"
-            }
-          },
           "used_product_block_UNE7KL": {
             "type": "used_product_block",
             "settings": {
-              "used_product": "テスト3-ラフテー"
+              "used_product": "ポークハンバーグ"
+            }
+          },
+          "used_product_block_VagPLp": {
+            "type": "used_product_block",
+            "settings": {
+              "used_product": "あぐーラフテー"
             }
           }
         },
         "block_order": [
-          "used_product_block_VagPLp",
-          "used_product_block_UNE7KL"
+          "used_product_block_UNE7KL",
+          "used_product_block_VagPLp"
         ],
         "settings": {
         }
