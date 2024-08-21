@@ -2887,23 +2887,26 @@ top
 @media screen and (min-width: 1560px) {
   #pickup {
     padding-bottom: 8rem;
+    margin-top: -19rem;
   }
 }
 @media screen and (min-width: 1700px) {
   #pickup {
-    padding-bottom: 10rem;
+    padding-bottom: 9rem;
+    margin-top: -20rem;
   }
 }
 @media screen and (min-width: 1800px) {
   #pickup {
-    margin-top: -20rem;
-    padding-bottom: 30rem;
+    margin-top: -24rem;
+    padding-bottom: 20rem;
   }
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 1024px) {
   #pickup {
     margin-top: -9rem;
     padding-top: 10rem;
+    padding-bottom: 20rem;
     background-image: url(https://cdn.shopify.com/s/files/1/0615/5894/7910/files/top_pickup_bg_sp.png);
   }
 }
@@ -2916,7 +2919,7 @@ top
   position: absolute;
   top: 6rem;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 1024px) {
   #pickup .text_deco {
     top: 0;
     left: 50%;
@@ -2939,7 +2942,7 @@ top
     height: 52rem;
   }
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 1024px) {
   #pickup .ctn {
     display: block;
     overflow-x: hidden;
@@ -2948,7 +2951,7 @@ top
 #pickup .ctn .ctt {
   width: 35.2777777778vw;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 1024px) {
   #pickup .ctn .ctt {
     width: 100%;
     overflow: hidden;
@@ -2959,7 +2962,7 @@ top
   letter-spacing: 0.2em;
   margin-bottom: 1.6rem;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 1024px) {
   #pickup .ctn .ctt p {
     text-align: center;
     margin-bottom: 0;
@@ -2973,12 +2976,12 @@ top
 @media screen and (max-width: 1024px) {
   #pickup .ctn .ctt h4 {
     font-size: 2.4rem;
+    text-align: center;
   }
 }
 @media screen and (max-width: 599px) {
   #pickup .ctn .ctt h4 {
     font-size: 3.2rem;
-    text-align: center;
     margin-bottom: 5rem;
     letter-spacing: 0.14em;
   }
@@ -2987,7 +2990,7 @@ top
   margin: 0 auto 0 0;
   font-family: "EB Garamond", serif;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 1024px) {
   #pickup .ctn .ctt .btn {
     margin: 0 auto;
   }
@@ -2995,14 +2998,24 @@ top
 #pickup .ctn .ctt_img {
   display: none;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 1024px) {
   #pickup .ctn .ctt_img {
     display: block;
     width: 100%;
     position: absolute;
-    bottom: -10rem;
+    bottom: -5rem;
     left: 50%;
     transform: translateX(-50%);
+  }
+}
+@media screen and (max-width: 599px) {
+  #pickup .ctn .ctt_img {
+    bottom: 0;
+  }
+}
+@media screen and (max-width: 391px) {
+  #pickup .ctn .ctt_img {
+    bottom: -4rem;
   }
 }
 
