@@ -285,39 +285,9 @@ href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@5.3.6/dist/simplebar.min.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@4.0.1/dist/css/yakuhanjp.css">
+<link rel="stylesheet" href="https://use.typekit.net/suo8lwt.css">
 
 
-<script>
-  (function (d) {
-    var config = {
-        kitId: "loq6wes",
-        scriptTimeout: 3000,
-        async: true,
-      },
-      h = d.documentElement,
-      t = setTimeout(function () {
-        h.className =
-          h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
-      }, config.scriptTimeout),
-      tk = d.createElement("script"),
-      f = false,
-      s = d.getElementsByTagName("script")[0],
-      a;
-    h.className += " wf-loading";
-    tk.src = "https://use.typekit.net/" + config.kitId + ".js";
-    tk.async = true;
-    tk.onload = tk.onreadystatechange = function () {
-      a = this.readyState;
-      if (f || (a && a != "complete" && a != "loaded")) return;
-      f = true;
-      clearTimeout(t);
-      try {
-        Typekit.load(config);
-      } catch (e) {}
-    };
-    s.parentNode.insertBefore(tk, s);
-  })(document);
-</script>
 
         {% comment %} ーーーーーーーーーーここまで追記ーーーーーーーーーー {% endcomment %}
   
